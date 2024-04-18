@@ -1,7 +1,7 @@
 // using .map and .filter in React!
 
-import { people} from "../utils/getData.jsx";
-import {getImageUrl} from "../utils/getImage.jsx";
+import { people} from "../../utils/getData.jsx";
+import {getImageUrl} from "../../utils/getImage.jsx";
 import {Fragment} from "react";
 
 // function List() {

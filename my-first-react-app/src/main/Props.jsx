@@ -35,7 +35,7 @@
 // }
 
 // Functions as Props
-import {getImageUrl} from "../utils/getImage.jsx";
+import {getImageUrl} from "../../utils/getImage.jsx";
 
 function Button({text = 'Click me', color = 'blue', fontSize = 12, handleClick}) { // handler for function
     const buttonStyle = {

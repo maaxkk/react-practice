@@ -1,5 +1,5 @@
-import {people} from '../utils/getData.jsx';
-import {getImageUrl} from '../utils/getImage.jsx';
+import {people} from '../../utils/getData.jsx';
+import {getImageUrl} from '../../utils/getImage.jsx';
 
 function List3() {
     const chemists = people.filter(person => person.profession === 'chemist')
@@ -36,7 +36,7 @@ function List3() {
 }
 
 
-import {recipes} from "../utils/getData2.jsx";
+import {recipes} from "../../utils/getData2.jsx";
 import {Fragment} from "react";
 
 
