@@ -12,11 +12,29 @@ import {List3, RecipeList, Poem} from "./challenges/Challenges2.jsx";
 import {App2, Profile, Profile4} from "./main/Props.jsx";
 import {Gallery, Profile2Ch3, ProfileCh3} from "./challenges/Challenges3.jsx";
 import {ChangeColor, Page} from "./main/States.jsx";
-import {GalleryCh4} from "./challenges/Challenges4.jsx";
+import {FeedbackForm, FeedbackForm2, Form, GalleryCh4} from "./challenges/Challenges4.jsx";
+import {GalleryRender} from "./main/Rendering2.jsx";
+import {Person} from "./main/moreOnState.jsx";
+import {useState} from "react";
+
+//infinite loop
+function Component() {
+    const [count, setCount] = useState(0);
+    // console.log(count)
+    setCount(count + 1);
+
+    return <h1>{count}</h1>;
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <GalleryCh4/>
+        <Person/>
+        {/*<Component/>*/}
+        {/*<GalleryRender/>*/}
+        {/*<FeedbackForm2/>*/}
+        {/*<FeedbackForm/>*/}
+        {/*<Form/>*/}
+        {/*<GalleryCh4/>*/}
         {/*<Page />*/}
         {/*<GallerySt />*/}
         {/*<ChangeColor />*/}

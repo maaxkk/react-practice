@@ -30,7 +30,7 @@ function useState(initialState) {
     function setState(nextState) {
         // When the user requests a state change,
         // put the new value into the pair.
-        pair[0] = nextState; // setIndex(index + 1)
+        pair[0] = nextState; // e.g counter + 1
         updateDom();
     }
 
