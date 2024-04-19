@@ -1,7 +1,7 @@
 import {useState} from "react";
 
 function Person() {
-    const [person, setPerson] = useState({name: 'John', age: 100});
+    const [person, setPerson] = useState({name: 'John', lastName: '', age: 100});
 
     // BAD - Don't do this!
     // const handleIncreaseAge = () => {
@@ -19,10 +19,11 @@ function Person() {
     // };
 
 
-
     const handleIncreaseAge = () => {
         console.log('in handleIncreaseAge (before setPerson call): ', person); // 100
-        setPerson({...person, age: person.age + 1});
+        // setPerson({...person, age: person.age + 1});
+        setPerson((prevPerson) => ({...prevPerson, age: prevPerson.age + 1}));
+        // setPerson((prevPerson) => ({...prevPerson, age: prevPerson.age + 1}));
         // we've called setPerson, surely person has updated?
         console.log('in handleIncreaseAge (after setPerson call: ', person); // 100
     }
@@ -33,8 +34,11 @@ function Person() {
 
     return (
         <>
-            <h1>{person.name}</h1>
-            <h2>{person.age}</h2>
+            <input onChange={(e) => setPerson({...person, name: e.target.value})}/>
+            <input onChange={(e) => setPerson({...person, lastName: e.target.value})}/>
+            <h1>{'Name is: ' + person.name}</h1>
+            <h1>{'Last name is: ' + person.lastName}</h1>
+            <h2>{'Age is: ' + person.age}</h2>
             <button onClick={handleIncreaseAge}>Increase age</button>
         </>
     )

@@ -16,6 +16,12 @@ import {FeedbackForm, FeedbackForm2, Form, GalleryCh4} from "./challenges/Challe
 import {GalleryRender} from "./main/Rendering2.jsx";
 import {Person} from "./main/moreOnState.jsx";
 import {useState} from "react";
+import {CounterMore, FormMore, FormMore2, TrafficLight} from "./main/MoreStates.jsx";
+import {FeedbackFormMore, FormMore3, MovingDot, TestApp} from "./main/MoreStates2.jsx";
+import {Menu3, TravelPlan} from "./main/MoreStates3.jsx";
+import {AppClock, TravelPlan2} from "./challenges/Challenges5.jsx";
+import {MailClient, MailClient2} from "./challenges/Challenges5-2.jsx";
+import {Accordion, FilterableList, SyncedInputs} from "./main/SharingState.jsx";
 
 //infinite loop
 function Component() {
@@ -28,6 +34,23 @@ function Component() {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
+        {/*<FilterableList/>*/}
+        {/*<SyncedInputs/>*/}
+        {/*<Accordion/>*/}
+        {/*<MailClient2/>*/}
+        {/*<MailClient/>*/}
+        {/*<TravelPlan2/>*/}
+        {/*<AppClock/>*/}
+        {/*<TravelPlan/>*/}
+        {/*<Menu3/>*/}
+        {/*<TestApp/>*/}
+        {/*<FormMore3/>*/}
+        {/*<FeedbackFormMore/>*/}
+        {/*<MovingDot/>*/}
+        {/*<TrafficLight/>*/}
+        {/*<FormMore2/>*/}
+        {/*<FormMore />*/}
+        {/*<CounterMore/>*/}
         <Person/>
         {/*<Component/>*/}
         {/*<GalleryRender/>*/}
