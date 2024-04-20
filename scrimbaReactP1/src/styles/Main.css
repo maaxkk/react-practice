@@ -1,0 +1,30 @@
+main {
+    background-color: #282D35;
+    background-image: url("../assets/react-icon-large.png");
+    background-repeat: no-repeat;
+    background-position: 100% 75%;  /* x,y */
+    padding: 57px 27px;
+    color: white;
+}
+
+.main--content {
+    font-size: 39px;
+    margin: 0;
+    letter-spacing: -0.05em;
+}
+
+.main--facts{
+    margin-top: 46px;
+    max-width: 400px;
+}
+
+.main--facts > li {
+    line-height: 19px;
+    padding-block: 10px;
+}
+
+.main--facts > li::marker {
+    font-size: 1.4rem;
+    color: #61DAFB;
+}
+

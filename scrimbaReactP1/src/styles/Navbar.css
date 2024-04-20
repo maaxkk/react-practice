@@ -1,0 +1,23 @@
+
+nav {
+    background-color: #21222A;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    height: 90px;
+    padding: 30px 25px;
+}
+
+.nav--react-logo {
+    width: 30px;
+    margin-right: 7px;
+}
+
+.nav--react-facts {
+    color: #61DAFB;
+    margin-right: auto;
+}
+
+.nav--react-course {
+    color: white;
+}
