@@ -1,4 +1,4 @@
-import airbnbGrid from '../assets/photo-grid.png'
+import airbnbGrid from '../../public/images/photo-grid.png'
 import '../styles/Hero.css'
 
 function Hero() {
