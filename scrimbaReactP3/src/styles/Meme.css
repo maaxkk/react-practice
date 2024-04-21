@@ -1,0 +1,39 @@
+main {
+    padding: 36px;
+}
+
+.form {
+    display: grid;
+    grid-template: 55px 40px / 1fr 1fr;
+    gap: 17px;
+}
+
+.form--label {
+    margin-bottom: 5px;
+}
+
+.form--input {
+    font-family: "Karla", sans-serif;
+    border: 1px solid #D5D4D8;
+    border-radius: 5px;
+    text-indent: 5px;
+    height: 35px;
+    width: 100%;
+}
+
+.form--button {
+    grid-column: 1 / 3;
+    font-family: "Karla", sans-serif;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #711F8D 1.14%, #A818DA 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.main--meme-img {
+    margin-top: 32px;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
