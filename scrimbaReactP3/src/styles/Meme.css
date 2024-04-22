@@ -6,6 +6,7 @@ main {
     display: grid;
     grid-template: 55px 40px / 1fr 1fr;
     gap: 17px;
+    margin-bottom: 17px;
 }
 
 .form--label {
@@ -36,4 +37,41 @@ main {
     width: 100%;
     height: auto;
     border-radius: 2px;
+}
+
+.meme {
+    position: relative;
+}
+
+.meme--text {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-family: "Karla", sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow:
+            2px 2px 0 #000,
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            0 2px 0 #000,
+            2px 0 0 #000,
+            0 -2px 0 #000,
+            -2px 0 0 #000,
+            2px 2px 5px #000;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+.top {
+    top: 5%;
 }
