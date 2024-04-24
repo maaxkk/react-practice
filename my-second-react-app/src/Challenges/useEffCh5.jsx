@@ -27,6 +27,12 @@ export default function Page() {
 
     }, [planetId]);
 
+
+    // why do we need ignore here? For example user runs external process(useEffect) that will take 10 minutes
+    // after 2 minutes user decided to left page and not to wait, and our component was unmount, because user left
+    // website, now when component was unmount useEffect returns its value, and it returns 'ignore = true' now when
+    // fetch process(10 min process) will end it will check value of 'ignore' variable(it will be true) and
+    // after fetching data it won't update our data of component
     useEffect(() => {
         let ignore = false;
         fetchData('/planets').then(result => {
