@@ -101,7 +101,7 @@ function DotAppCh2() {
             </label>
             <hr/>
             <div style={styles}></div>
-            {/*{ canMove && <div style={styles}/>}*/}
+            {/*{ canMove && <div styles={styles}/>}*/}
         </>
     )
 }

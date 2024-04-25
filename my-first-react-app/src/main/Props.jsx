@@ -5,7 +5,7 @@
 //         fontSize: props.fontSize + 'px',
 //     };
 //     return (
-//         <button style={buttonStyle}>{props.text}</button>
+//         <button styles={buttonStyle}>{props.text}</button>
 //     );
 // }
 
@@ -30,7 +30,7 @@
 //         fontSize: fontSize + 'px',
 //     };
 //     return (
-//         <button style={buttonStyle}>{text}</button>
+//         <button styles={buttonStyle}>{text}</button>
 //     );
 // }
 
