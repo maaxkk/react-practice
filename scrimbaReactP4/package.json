@@ -15,7 +15,8 @@
     "nanoid": "3.1.28",
     "react-split": "2.0.13",
     "react-mde": "11.5.0",
-    "showdown": "1.9.1"
+    "showdown": "1.9.1",
+    "firebase": "9.20.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

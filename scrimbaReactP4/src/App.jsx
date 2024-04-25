@@ -1,39 +1,62 @@
 import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
-import {data} from './utils/data.js'
 import Split from "react-split"
 import {nanoid} from "nanoid"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-/**
- * Challenge: Spend 10-20+ minutes reading through the code
- * and trying to understand how it's currently working. Spend
- * as much time as you need to feel confident that you
- * understand the existing code (although you don't need
- * to fully understand everything to move on)
- */
 
 export default function App() {
-    const [notes, setNotes] = useState([])
+    const [notes, setNotes] = useState(
+        () => JSON.parse(localStorage.getItem('notes')) || [])
     const [currentNoteId, setCurrentNoteId] = useState(
-        (notes[0] && notes[0].id) || ""
+        (notes[0]?.id) || ""
     )
+
+    const currentNote = notes.find(note => note.id === currentNoteId) || notes[0]
+
+    // lazy state initialization allows put function as initial value, and this function wont be called again after initial
+    // component render. It's nice when our initial value is item from localStorage and we dont need to call localStorage
+    // everytime
+
+    // const [state, setState] = useState(console.log('State initialization'))
+    // const [state, setState] = useState(() => console.log('State initialization'))
+
+    useEffect(() =>{
+        localStorage.setItem('notes', JSON.stringify(notes))
+
+    }, [notes]) // everytime notes array changes, we set this array to local storage
 
     function createNewNote() {
         const newNote = {
             id: nanoid(),
             body: "# Type your markdown note's title here"
         }
-        setNotes(prevNotes => [newNote, ...prevNotes])
+        setNotes(prevNotes => {
+            // more better way to use useEffect instead of use localStorage here
+            // localStorage.setItem('notes', JSON.stringify([newNote, ...prevNotes]))
+            return [newNote, ...prevNotes]
+        })
         setCurrentNoteId(newNote.id)
     }
 
     function updateNote(text) {
-        setNotes(oldNotes => oldNotes.map(oldNote => {
-            return oldNote.id === currentNoteId
-                ? { ...oldNote, body: text }
-                : oldNote
-        }))
+        setNotes(oldNotes => {
+            const newArray = []
+            for (let i = 0; i < oldNotes.length; i++) {
+                const oldNote = oldNotes[i]
+                if (oldNote.id === currentNoteId) {
+                    newArray.unshift({...oldNote, body: text})
+                } else {
+                    newArray.push(oldNote)
+                }
+            }
+            return newArray
+        })
+    }
+
+    function deleteNode(event, noteId) {
+        event.stopPropagation();
+        setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
     }
 
     function findCurrentNote() {
@@ -54,15 +77,16 @@ export default function App() {
                     >
                         <Sidebar
                             notes={notes}
-                            currentNote={findCurrentNote()}
+                            currentNote={currentNote}
                             setCurrentNoteId={setCurrentNoteId}
                             newNote={createNewNote}
+                            deleteNote={deleteNode}
                         />
                         {
                             currentNoteId &&
                             notes.length > 0 &&
                             <Editor
-                                currentNote={findCurrentNote()}
+                                currentNote={currentNote}
                                 updateNote={updateNote}
                             />
                         }

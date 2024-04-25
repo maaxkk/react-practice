@@ -1,4 +1,10 @@
 export default function Sidebar(props) {
+
+    function getFirstLine(note) {
+        const tmp = JSON.stringify(note.body)
+        return tmp.split('\\n')[0]
+    }
+
     const noteElements = props.notes.map((note, index) => (
         <div key={note.id}>
             <div
@@ -7,7 +13,13 @@ export default function Sidebar(props) {
                 }`}
                 onClick={() => props.setCurrentNoteId(note.id)}
             >
-                <h4 className="text-snippet">Note {index + 1}</h4>
+                <h4 className="text-snippet">{getFirstLine(note)}</h4>
+                <button
+                    className="delete-btn"
+                    onClick={(event) => props.deleteNote(event, note.id)}
+                >
+                    <i className="gg-trash trash-icon"></i>
+                </button>
             </div>
         </div>
     ))
