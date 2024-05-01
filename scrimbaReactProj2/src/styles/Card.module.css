@@ -1,0 +1,58 @@
+.locationInfo {
+    padding: 2em;
+}
+
+.locationImage {
+    min-width: 125px;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.locationTitle {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 1em;
+}
+
+.path {
+    width: 10px;
+    height: 12px;
+    margin-right: 0.2em;
+}
+
+.date {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+a {
+    color: #918E9B;
+    font-size: 0.8rem;
+}
+
+@media (min-width: 600px) {
+    .card {
+        flex-direction: row;
+    }
+
+    .locationImage {
+        border-radius: 0.4em;
+        margin-left: 2em;
+        margin-bottom: 2em;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,13 @@
+.header {
+    background: #F55A5A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+h1 {
+    color: white;
+    font-size: 1rem;
+    margin-left: 0.5em;
+}
