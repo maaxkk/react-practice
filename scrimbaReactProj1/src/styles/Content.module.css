@@ -1,0 +1,9 @@
+.aboutText, .interests {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 0.5em;
+}
+
+.aboutTitle, .interestsTitle {
+    margin-bottom: 0;
+}
