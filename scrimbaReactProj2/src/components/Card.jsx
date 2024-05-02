@@ -2,9 +2,9 @@
 import styles from '../styles/Card.module.css'
 import pathImage from '../images/icons/path.png'
 
-function Card({title, location, googleMapsUrl, startDate, endDate, description, imageUrl}) {
+function Card({title, location, googleMapsUrl, startDate, endDate, description, imageUrl, border}) {
     return (
-        <section className={styles.card}>
+        <section className={`${styles.card} ${border === true ? styles.cardBorder : ''}`}>
             <img className={styles.locationImage} src={imageUrl} alt={`Image of ${title}`}/>
             <article className={styles.locationInfo}>
                 <div className={styles.wrapper}>

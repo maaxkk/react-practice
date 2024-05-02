@@ -1,17 +1,22 @@
-.locationInfo {
-    padding: 2em;
-}
-
 .locationImage {
-    min-width: 125px;
-    width: 100%;
+    display: block;
+    min-width: 200px;
+    max-width: 100%;
     max-height: 300px;
     object-fit: cover;
+}
+
+.locationInfo {
+    padding: 2em;
 }
 
 .card {
     display: flex;
     flex-direction: column;
+}
+
+.cardBorder {
+    border-bottom: 1px solid #F5F5F5;
 }
 
 .wrapper {
@@ -41,15 +46,21 @@ a {
     font-size: 0.8rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 650px) {
     .card {
         flex-direction: row;
+        padding: 2em;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .locationInfo {
+        padding: 1em 2em 2em 2em;
     }
 
     .locationImage {
         border-radius: 0.4em;
-        margin-left: 2em;
-        margin-bottom: 2em;
+        max-width: 200px;
     }
 
     h2 {
