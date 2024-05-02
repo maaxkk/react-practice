@@ -1,51 +1,48 @@
-import {shuffleData} from "../utils/shuffleData.js";
-import {Question} from "./Question.jsx";
-import styles from '../styles/Form.module.css'
-import {useState} from "react";
+import { Question } from "./Question.jsx";
+import styles from '../styles/Form.module.css';
+import { useState } from "react";
+import { decode } from "html-entities";
 
-function Form({questionsData, correctAnswers, handleCurrentRound}) {
-    const [userAnswers, setUserAnswers] = useState({
-        [questionsData[0][0]]: '',
-        [questionsData[1][0]]: '',
-        [questionsData[2][0]]: '',
-        [questionsData[3][0]]: '',
-        [questionsData[4][0]]: '',
-    })
+function Form({shuffledArrays, handleCorrectAnswers, correctAnswers }) {
+    const [userAnswers, setUserAnswers] = useState({});
 
+    console.log('Form render')
     function handleUserAnswer(event, question) {
-        setUserAnswers(prevAnswers => {
-            const nextAnswers = {...prevAnswers}
-            nextAnswers[question] = event.target.value;
-            return nextAnswers;
-        })
+        setUserAnswers(prevState => ({
+            ...prevState,
+            [question]: event.target.value
+        }));
     }
 
-    function isCorrect(question, answer) {
-        if (userAnswers[question] === correctAnswers[question]) {
-            return true;
-        }
-        return false;
-    }
-
-    const radioAnswers = questionsData.map((questionObj, index) => {
-        const currQuestion = shuffleData(questionObj);
-        return <Question key={index} userAnswers={userAnswers}
-                         handleUserAnswer={handleUserAnswer}
-                         questionArray={currQuestion}
-                         correctAnswers={correctAnswers}
-                         isCorrect={isCorrect}
-                         />
-    })
+    let radioAnswers = shuffledArrays.map((questionArray, index) => {
+        return (
+            <Question
+                key={index}
+                questionArray={questionArray}
+                handleChange={handleUserAnswer}
+            />
+        );
+    });
 
     function handleSubmit(event) {
         event.preventDefault();
+        let correctAns = 0
+        for (let question in correctAnswers) {
+            if (correctAnswers[question] === userAnswers[question]){
+                correctAns++;
+            }
+        }
+        console.log(userAnswers)
+        console.log(correctAnswers)
+        console.log(`You did ${correctAns}/5 !!`)
     }
 
     return (
         <form onSubmit={handleSubmit}>
+            {radioAnswers}
             <button className={styles.submitBtn}>Check answers</button>
         </form>
-    )
+    );
 }
 
-export {Form}
+export { Form };

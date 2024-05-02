@@ -1,27 +1,31 @@
 import {useEffect, useState} from 'react'
 import {shuffleData} from "./utils/shuffleData.js";
 import data from "./utils/data.js";
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import {Form} from "./components/Form.jsx";
+import {decode} from "html-entities";
 
 function App() {
     const [questionsData, setQuestionsData] = useState(data)
     const [correctAnswersCounter, setCorrectAnswersCounter] = useState(0)
-    const [currentRound, setCurrentRound] = useState(0)
 
     const correctAnswers = {
-        [questionsData[0].question]: questionsData[0].correct_answer,
-        [questionsData[1].question]: questionsData[1].correct_answer,
-        [questionsData[2].question]: questionsData[2].correct_answer,
-        [questionsData[3].question]: questionsData[3].correct_answer,
-        [questionsData[4].question]: questionsData[4].correct_answer,
+        [decode(questionsData[0].question)]: questionsData[0].correct_answer,
+        [decode(questionsData[1].question)]: questionsData[1].correct_answer,
+        [decode(questionsData[2].question)]: questionsData[2].correct_answer,
+        [decode(questionsData[3].question)]: questionsData[3].correct_answer,
+        [decode(questionsData[4].question)]: questionsData[4].correct_answer,
     }
 
-    function increaseRound() {
-        setCurrentRound(prevRound => prevRound + 1)
+    const shuffledArrays = questionsData.map(question => {
+        return shuffleData(question)
+    })
+
+    function handleCorrectAnswers(num) {
+        setCorrectAnswersCounter(num)
     }
+
+    console.log('App render')
 
     // useEffect(() => {
     //     let ignore = false;
@@ -46,7 +50,10 @@ function App() {
 
     return (
         <div className={'container'}>
-            <Form questionsData={questionsData} correctAnswers={correctAnswers} handleCurrentRound={increaseRound}/>
+            <Form shuffledArrays={shuffledArrays}
+                  handleCorrectAnswers={handleCorrectAnswers}
+                  correctAnswers={correctAnswers}
+            />
         </div>
     )
 }
