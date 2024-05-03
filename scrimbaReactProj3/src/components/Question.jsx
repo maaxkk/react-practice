@@ -19,7 +19,7 @@ function Question({questionArray, handleChange, gameOver, userAnswers, correctAn
 
 
     console.log('Question render')
-
+    console.log(correctAnswers)
     const allAnswers = onlyAnswers.map((answer, index) => {
         const validationNum = validateAnswer(question, answer);
         return (
