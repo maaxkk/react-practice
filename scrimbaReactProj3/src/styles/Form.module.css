@@ -6,6 +6,19 @@
     border-radius: 1em;
     font-size: 1rem;
     cursor: pointer;
-    display: block;
+}
+
+.gameOverText {
+    font-weight: bold;
+}
+
+.gameOver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
     margin: 2em auto 0 auto;
 }
+
+
+

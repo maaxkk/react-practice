@@ -3,9 +3,9 @@ import {decode} from "html-entities";
 function shuffleData(questionObj) {
     let output = []
     output.push(decode(questionObj.question))
-    output.push(questionObj.correct_answer)
+    output.push(decode(questionObj.correct_answer))
     for (let incorrectAns of questionObj.incorrect_answers) {
-        output.push(incorrectAns)
+        output.push(decode(incorrectAns))
     }
     output = shuffleArray(output)
 

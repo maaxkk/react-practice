@@ -1,0 +1,24 @@
+
+.startBtn {
+    padding: 1em 2em;
+    background-color: #4D5B9E;
+    border-radius: 1em;
+    color: white;
+    border-style: none;
+    margin-top: 2em;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+h1, .description {
+    color: #4D5B9E;
+    margin-bottom: 0;
+}
+
+.startScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
