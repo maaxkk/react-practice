@@ -1,0 +1,41 @@
+button {
+    background-color: #FFFBEC;
+    color: #4B5563;
+    border: 1px solid #6B7280;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    font-weight: 700;
+    padding: 9px 17px;
+    border-radius: 6px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+}
+
+button.button-sm {
+    padding: 7px 11px;
+    font-size: 12px;
+}
+
+button.button-lg {
+    padding: 30px 40px;
+}
+
+button.button-success {
+    color: #007858;
+    border-color: #007858;
+    font-size: 1rem;
+}
+
+button.button-warning {
+    color: #FFBF3E;
+    border-color: #FFBF3E;
+    font-size: 1.25rem;
+}
+
+button.button-danger {
+    color: #FF7174;
+    border-color: #FF7174;;
+    font-size: 1.5rem;
+}
