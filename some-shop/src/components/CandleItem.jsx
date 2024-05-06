@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import classes from '../styles/CandleItem.module.css'
-import {CartContext} from "../App.jsx";
+import {CartContext} from "./AppRouter.jsx";
 
 function CandleItem({title, src, category, price, id}) {
     const {cart, addItem} = useContext(CartContext)
@@ -14,7 +14,7 @@ function CandleItem({title, src, category, price, id}) {
             <img className={classes.candleImg} src={src} alt="Image of candle"/>
             <div className={classes.titleWrapper}>
                 <h3 className={classes.title}>{title}</h3>
-                <p className={classes.category}>Category: <strong>{category}</strong></p>
+                <p className={classes.category}>Category: <strong>{category[1]}</strong></p>
             </div>
             <div className={classes.buyWrapper}>
                 <p className={classes.price}>{price}$</p>

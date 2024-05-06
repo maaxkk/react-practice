@@ -1,9 +1,13 @@
 import React from 'react';
 import MyInput from "../Input/MyInput.jsx";
 
-function MyRadio(props) {
+function MyRadio({category, type, name, ...otherProps}) {
     return (
-        <MyInput category={props.category} type={'radio'} name={props.name}></MyInput>
+        <MyInput {...otherProps}
+                 category={category}
+                 type={'radio'}
+                 name={name}>
+        </MyInput>
     );
 }
 

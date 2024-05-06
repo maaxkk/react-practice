@@ -1,45 +1,34 @@
-import {createContext, useState} from "react";
+import {useState} from "react";
 import data from "../utils/data.js";
 import Navbar from "../components/UI/Navbar/Navbar.jsx";
 import CandlesFilter from "../components/CandlesFilter.jsx";
 import CandlesList from "../components/CandlesList.jsx";
 
-export const CartContext = createContext()
 
 function Candles() {
     const [candles, setCandles] = useState(data)
-    const [cart, setCart] = useState({
-        count: 0,
-        totalPrice: 0,
-        itemsId: {},
-    })
+
     const [filter, setFilter] = useState({
-        sort: '',
+        category: 'All',
         query: '',
+        sort: '',
     })
 
-    function addItem(price, id) {
-        setCart(prevCart => {
-            let nextItemsIds = {...prevCart.itemsId}
-            if (prevCart.itemsId.hasOwnProperty(id)) {
-                nextItemsIds[id] += 1;
-            } else nextItemsIds[id] = 1;
-            return {
-                ...prevCart,
-                count: prevCart.count + 1,
-                totalPrice: prevCart.totalPrice + price,
-                itemsId: nextItemsIds,
-            };
-        })
-    }
+    const categories = []
+    candles.forEach((candle) => {
+        for (let candleCategory of candle.category) {
+            if (categories.includes(candleCategory)) continue;
+            categories.push(candleCategory);
+        }
+    })
+
+    console.log(categories)
 
     return (
         <div>
-            <CartContext.Provider value={{cart, addItem}}>
-                <Navbar/>
-                <CandlesFilter categories={['Therapy', 'Classics', 'Aroma']}/>
-                <CandlesList candles={candles}/>
-            </CartContext.Provider>
+            <Navbar filter={filter} setFilter={setFilter}/>
+            <CandlesFilter categories={categories} filter={filter} setFilter={setFilter}/>
+            <CandlesList candles={candles} filter={filter}/>
         </div>
     )
 }

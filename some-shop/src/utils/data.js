@@ -2,42 +2,42 @@ import candleImage from '../assets/candleItem.png'
 export default [
     {
         title: 'Vanilla dream candle',
-        category: 'classics',
+        category: ['All', 'Classics'],
         src: candleImage,
         price: 20,
         id: Math.random()
     },
     {
         title: 'Rose Garden Candle',
-        category: 'classics',
+        category: ['All', 'Classics'],
         src: candleImage,
         price: 20,
         id: Math.random()
     },
     {
         title: 'Lavender Fields Candle',
-        category: 'classics',
+        category: ['All', 'Classics'],
         src: candleImage,
         price: 20,
         id: Math.random()
     },
     {
         title: 'Ocean Breeze Candle',
-        category: 'therapy',
+        category: ['All', 'Therapy'],
         src: candleImage,
         price: 20,
         id: Math.random()
     },
     {
         title: 'Citrus Sunrise Candle',
-        category: 'therapy',
+        category: ['All', 'Therapy'],
         src: candleImage,
         price: 20,
         id: Math.random()
     },
     {
         title: 'Coconut Paradise Candle',
-        category: 'therapy',
+        category: ['All', 'Therapy'],
         src: candleImage,
         price: 20,
         id: Math.random()

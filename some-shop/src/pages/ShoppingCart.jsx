@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import data from '../utils/data.js'
-import {CartContext} from "../App.jsx";
 import classes from '../styles/ShoppingCart.module.css'
 import CandleItem from "../components/CandleItem.jsx";
 import Navbar from "../components/UI/Navbar/Navbar.jsx";
+import {CartContext} from "../components/AppRouter.jsx";
 
 
 function ShoppingCart(props) {

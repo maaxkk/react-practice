@@ -1,9 +1,6 @@
 import React, {useContext} from 'react';
 import {Route, Routes} from "react-router-dom";
-import About from "../pages/About.jsx";
 import Posts from "../pages/Posts.jsx";
-import Error from "../pages/Error.jsx";
-import PostIdPage from "../pages/PostIdPage.jsx";
 import {privateRoutes, publicRoutes} from "../router/index.js";
 import Login from "../pages/Login.jsx";
 import {AuthContext} from "../context/index.js";

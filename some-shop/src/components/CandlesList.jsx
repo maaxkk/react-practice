@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import CandleItem from "./CandleItem.jsx";
 import classes from "../styles/CandlesList.module.css";
+import {useCandles} from "../hooks/useCandles.js";
 
-function CandlesList({candles}) {
+function CandlesList({candles, filter}) {
+    let filteredCandles = useCandles(candles, filter.category, filter.query)
     return (
         <div className={classes.mainContent}>
             <h2 className={''}>All candles</h2>
             <div className={classes.candlesList}>
-                {candles.map(candle =>
-                    <CandleItem {...candle}/>
-                )}
+                {filteredCandles ?
+                    filteredCandles.map(candle =>
+                        <CandleItem key={candle.id} {...candle}/>
+                    )
+                    :
+                    candles.map(candle =>
+                        <CandleItem key={candle.id} {...candle}/>
+                    )
+                }
             </div>
         </div>
     );
