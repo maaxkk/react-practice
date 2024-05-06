@@ -1,14 +1,12 @@
-import {createContext, useState} from 'react'
-import './App.css'
-import Navbar from "./components/UI/Navbar/Navbar.jsx";
-import data from './utils/data.js'
-import {Route, Routes} from "react-router-dom";
-import ShoppingCart from "./pages/ShoppingCart.jsx";
-import Candles from "./pages/Candles.jsx";
+import {createContext, useState} from "react";
+import data from "../utils/data.js";
+import Navbar from "../components/UI/Navbar/Navbar.jsx";
+import CandlesFilter from "../components/CandlesFilter.jsx";
+import CandlesList from "../components/CandlesList.jsx";
 
 export const CartContext = createContext()
 
-function App() {
+function Candles() {
     const [candles, setCandles] = useState(data)
     const [cart, setCart] = useState({
         count: 0,
@@ -36,15 +34,14 @@ function App() {
     }
 
     return (
-        <div className={'app'}>
+        <div>
             <CartContext.Provider value={{cart, addItem}}>
-                <Routes>
-                    <Route path={'/'} element={<Candles/>}></Route>
-                    <Route path={'/cart'} element={<ShoppingCart/>}></Route>
-                </Routes>
+                <Navbar/>
+                <CandlesFilter categories={['Therapy', 'Classics', 'Aroma']}/>
+                <CandlesList candles={candles}/>
             </CartContext.Provider>
         </div>
     )
 }
 
-export default App
+export default Candles

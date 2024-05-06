@@ -3,20 +3,26 @@ import data from '../utils/data.js'
 import {CartContext} from "../App.jsx";
 import classes from '../styles/ShoppingCart.module.css'
 import CandleItem from "../components/CandleItem.jsx";
+import Navbar from "../components/UI/Navbar/Navbar.jsx";
+
 
 function ShoppingCart(props) {
     const {cart, addItem} = useContext(CartContext)
     const itemsInCart = data.filter(item => {
         if (cart.itemsId.hasOwnProperty(item.id)) return item
     })
-    console.log(itemsInCart)
     return (
-        <div className={classes.itemsList}>
-            <h1>test</h1>
-            {itemsInCart.map(item =>
-                <CandleItem {...item}/>
-            )}
-        </div>
+        <>
+            <Navbar/>
+            <div className={classes.mainContent}>
+                <h2>Shopping cart</h2>
+                <div className={classes.candlesList}>
+                    {itemsInCart.map(item =>
+                        <CandleItem {...item}/>
+                    )}
+                </div>
+            </div>
+        </>
     );
 }
 
