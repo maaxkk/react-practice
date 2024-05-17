@@ -8,20 +8,24 @@ import {CartContext} from "../../AppRouter.jsx";
 
 function Navbar({filter, setFilter}) {
     const {cart, addItem} = useContext(CartContext)
+
     function handleSearchCandle(e) {
         setFilter(prevFilter => (
             {...prevFilter, query: e.target.value}
         ))
     }
+
     return (
         <header className={classes.header}>
-            <div className={classes.logoWrapper}>
-                <img className={classes.logo} src={candleLogo} alt={'Image of logo'}/>
-                <div>
-                    <h1 className={classes.title}>REACT CANDLES V2</h1>
-                    <p className={classes.subtitle}>made with love ❤ </p>
+            <Link to={'/'}>
+                <div className={classes.logoWrapper}>
+                    <img className={classes.logo} src={candleLogo} alt={'Image of logo'}/>
+                    <div>
+                        <h1 className={classes.title}>REACT CANDLES V2</h1>
+                        <p className={classes.subtitle}>made with love ❤ </p>
+                    </div>
                 </div>
-            </div>
+            </Link>
             <div className={classes.inputWrapper}>
                 <MyInput onChange={handleSearchCandle}
                          placeholder={'Search candles...'}/>

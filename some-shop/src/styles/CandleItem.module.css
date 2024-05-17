@@ -39,7 +39,7 @@
     border: 1px solid #FF9499;
     cursor: pointer;
     font-size: 1.1rem;
-    transition: background-color 250ms ease-in;
+    transition: background-color 100ms linear;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,4 +62,6 @@
     width: 24px;
     height: 24px;
 }
+
+
 

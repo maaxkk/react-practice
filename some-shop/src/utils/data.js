@@ -1,4 +1,5 @@
 import candleImage from '../assets/candleItem.png'
+
 export default [
     {
         title: 'Vanilla dream candle',
@@ -38,6 +39,13 @@ export default [
     {
         title: 'Coconut Paradise Candle',
         category: ['All', 'Therapy'],
+        src: candleImage,
+        price: 20,
+        id: Math.random()
+    },
+    {
+        title: 'Pink Aroma Candle',
+        category: ['All', 'Aroma'],
         src: candleImage,
         price: 20,
         id: Math.random()

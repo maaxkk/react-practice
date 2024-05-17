@@ -1,10 +1,10 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import CandleItem from "./CandleItem.jsx";
 import classes from "../styles/CandlesList.module.css";
 import {useCandles} from "../hooks/useCandles.js";
 
-function CandlesList({candles, filter}) {
-    let filteredCandles = useCandles(candles, filter.category, filter.query)
+function CandlesList({candles, filter, page, limit}) {
+    let filteredCandles = useCandles(candles, filter.category, filter.query, page, filter.sort, limit)
     return (
         <div className={classes.mainContent}>
             <h2 className={''}>All candles</h2>

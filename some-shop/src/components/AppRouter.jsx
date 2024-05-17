@@ -27,10 +27,53 @@ function AppRouter(props) {
             };
         })
     }
+    console.table(cart)
+
+
+
+    // function removeItem(price, id) {
+    //     setCart(prevCart => {
+    //         let nextCart = {...prevCart};
+    //         nextCart.itemsId[id] -= 1;
+    //         nextCart.count -= 1;
+    //         nextCart.totalPrice -= price;
+    //         if (nextCart.itemsId[id] === 0) {
+    //             delete nextCart.itemsId[id]
+    //         }
+    //         return nextCart;
+    //     })
+    // }
+
+    function removeItem(price, id) {
+        setCart(prevCart => {
+            let nextCart = {...prevCart};
+            let nextCartIds = {...prevCart.itemsId}
+            nextCartIds[id] -= 1;
+            nextCart.count -= 1;
+            nextCart.totalPrice -= price;
+            if (nextCartIds[id] === 0) {
+                delete nextCartIds[id]
+            }
+            return {...nextCart, itemsId: nextCartIds};
+        })
+    }
+
+    function removeWholeItem(price, id) {
+        setCart(prevCart => {
+            let nextCartIds = {...prevCart.itemsId}
+            let totalItemPrice = prevCart.itemsId[id] * price;
+            let totalItemCount = prevCart.itemsId[id];
+            let nextCart = {...prevCart};
+            delete nextCartIds[id];
+            nextCart.count -= totalItemCount;
+            nextCart.totalPrice -= totalItemPrice;
+            return {...nextCart, itemsId: nextCartIds};
+        })
+    }
 
     return (
         <>
-            <CartContext.Provider value={{cart, addItem}}>
+            <CartContext.Provider value={{cart, addItem, removeItem, removeWholeItem, setCart}}>
                 <Routes>
                     <Route path={'/'} element={<Candles/>}></Route>
                     <Route path={'/cart'} element={<ShoppingCart/>}></Route>

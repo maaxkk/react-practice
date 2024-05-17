@@ -6,4 +6,20 @@
     color: white;
     border: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.price {
+    margin-right: 0.25em;
+}
+
+.cartIcon {
+    display: flex;
+    align-items: center;
+    margin-left: 0.25em;
+}
+
+.cartIcon > svg {
+    margin-right: 0.25em;
 }
